@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="normal/base::layout(~{::div})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	
+	<style>
+	#center{
+	text-align: center;
+	}
+	
+	</style>
+</head>
+<body>
+	<div class="container mt-3">
+	
+	<div class="row">
+	
+		<div class="col-md-11">
+		
+		
+		
+			<div class="card">
+			
+				<div class="card-layout">
+				
+				<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="role">
+				<span th:text="${session.message.content}"></span>
+ <th:block th:text="${@sessionHelper.removeMessageSession()}"></th:block>
+				
+				</div>
+				
+				<form th:action="@{/user/change}" action="" method="post">
+				
+					<div class="form-group mt-3">
+					
+						<input name="oldPass" type="text" class="form-control" placeholder="Enter old password">
+					
+					
+					</div>
+					
+					<div class="form-group mt-3">
+					
+						<input name="newPass" type="text" class="form-control" placeholder="Enter new password">
+					
+					
+					</div>
+					
+					
+					<div class="container text-center mt-3">
+					
+						<button class="btn btn-success">Change</button>
+						<button class="btn btn-warning">Reset</button>
+					
+					
+					</div>
+				
+				</form>
+				
+				</div>
+			
+			
+			
+			</div>
+		
+		</div>
+	
+	
+	</div>
+	
+		
+		
+		
+		
+		
+		
+		
+		</div>
+</body>
+</html>

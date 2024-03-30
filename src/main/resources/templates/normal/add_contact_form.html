@@ -1,0 +1,80 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="normal/base::layout(~{::div})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+</head>
+<body>
+	<div>
+	
+		<div class="card mt-2">
+  <div class="card-body">
+  
+  <div th:if="${session.message}" th:classappend="${session.message.type}" class="alert" role="alert">
+ <span th:text="${session.message.content}"></span>
+ <th:block th:text="${@sessionHelper.removeMessageSession()}"></th:block>
+</div>
+    
+    	<form th:object="${contact}" enctype="multipart/form-data" method="post" 
+    	th:action="@{/user/process-contact}" class="mt-2">
+    	
+    	
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Enter name</label>
+    <input type="text" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+  </div>
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Enter nickname</label>
+    <input type="text" name="secondName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+  </div>
+  
+  
+   <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Enter workplace</label>
+    <input type="text" name="work" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+  </div>
+  
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Enter email</label>
+    <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+  </div>
+  
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Enter number</label>
+    <input type="number" name="phone" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
+   
+  </div>
+  
+  
+  <div>  
+  
+  	<textarea placeholder="Enter description" name="description"  cols="130" rows="30"></textarea>
+  </div>
+  
+  
+ <div class="custom-file">
+ 	<input type="file" name="profileImage" />
+ 
+ </div>
+  
+  <div class="container text-center">
+  
+  <button type="submit" class="btn btn-outline-primary">Submit</button>
+	</div>
+</form>
+    
+    
+  </div>
+</div>
+		
+		
+		
+		
+		
+		</div>
+</body>
+</html>

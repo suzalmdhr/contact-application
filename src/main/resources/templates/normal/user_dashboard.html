@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"  th:replace="normal/base::layout(~{::div})">
+<head>
+	<meta charset="UTF-8" />
+	<title>Document</title>
+	
+	<style>
+	#center{
+	text-align: center;
+	}
+	
+	</style>
+</head>
+<body>
+	<div class="container mt-3">
+	
+	<div class="card">
+	
+		<div class="card-body">
+		
+			
+			<div class="container text-center" >
+			
+			<img height="250px" width="250px" th:src="@{'/img/contacts.png'}" src="" alt="" />
+		
+		
+		</div>
+		
+		 <h1 class="text-center mt-3">Start Adding Your Contacts</h1>
+		 
+		 	<a id="center" th:href="@{/user/add-contact}" class="btn btn-primary mt-3" href="">Add Contacts </a>
+		 	
+		 	<hr >
+		 	
+		 	
+		 
+		</div>
+	
+	</div>
+	
+		
+		
+		
+		
+		
+		
+		
+		</div>
+</body>
+</html>

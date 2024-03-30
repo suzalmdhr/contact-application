@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+	<meta charset="UTF-8" />
+	<title>Docs</title>
+</head>
+<body>
+
+	
+<section>
+				
+	<div class="container">
+		
+			<div class="row">
+			
+			<div class="col-md-8 offset-md-2">
+			
+			<div class="my-card">
+					
+						
+			<div th:if="${session.message}" th:classappend="${session.message.type}" class="alert " role="alert">
+  <p th:text="${session.message.content}"></p>
+  <th:block th:text="${@sessionHelper.removeMessageSession()}"></th:block>
+ 
+  
+</div>
+			
+				<h1 class="text-center">Register here!!</h1>
+			
+			
+			<form action="" th:action="@{/do_register}" method="post" th:object="${user}">
+				
+				 <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Username</label>
+    <input type="text" name="name" class="form-control"  th:classappend="${#fields.hasErrors('name') ? 'is-invalid':''}"
+     id="exampleInputEmail1" aria-describedby="emailHelp" th:value="${user.name}">
+       <div th:each="e : ${#fields.errors('name')}" th:text="${e}" class="invalid-feedback">
+       
+      </div>
+   
+  </div>
+				 <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Email</label>
+    <input type="email" name="email" class="form-control" th:value="${user.email}"
+     id="exampleInputEmail1" aria-describedby="emailHelp" >
+   
+  </div>
+				 <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label">Password</label>
+    <input type="password" name="password" class="form-control" th:classappend="${#fields.hasErrors('password') ? 'is-invalid' : ''}"
+     id="exampleInputEmail1" aria-describedby="emailHelp" >
+   		<div th:each="e : ${#fields.errors('password')}" th:text="${e}" class="invalid-feedback"></div>
+   
+  </div>
+  
+  		 
+      
+  	
+  
+  <div class="form-label">
+  <textarea name="about" th:text="${user.about}" id="" cols="113" rows="10" placeholder="Enter your description"></textarea>
+  
+  </div>
+  
+  
+  <div class="mb-3 form-check">
+    <input name="agreeds" type="checkbox" class="form-check-input" id="exampleCheck1">
+    <label class="form-check-label" for="exampleCheck1">Terms and agreement</label>
+   
+  </div>
+  
+  <div class="container">
+  	<button type="submit" class="btn bg-primary"> Submit</button>
+  	<button type="reset" class="btn btn-warning">Reset</button>
+  
+  </div>
+			
+			</form>
+			
+			
+			</div>
+			
+			</div>
+			
+			
+			</div>
+		
+		
+		
+		
+		
+		
+		</div>
+		
+		</section>
+	
+</body>
+</html>
